@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Footer from '@/components/Footer';
+import Appbar from "@/components/Appbar";
+import { ShootingStars } from "@/components/ui/shooting-stars";
+import { StarsBackground } from "@/components/ui/stars-background";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,9 +30,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-b dark:from-[#2e026d] dark:to-[#15162c] from-[#f8f8f6] to-[#dfdfe2]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-b from-[#1e0245] to-[#151da5] flex flex-col`}
       >
-        {children}
+        <Appbar />
+        <div className="flex flex-col justify-center items-center">
+          <StarsBackground className="relative z-0 h-screen" starDensity={0.00035}/>
+            {children}
+            <div className="md:w-4/5 w-full">
+              <Footer />
+            </div>
+          </div>
       </body>
     </html>
   );
