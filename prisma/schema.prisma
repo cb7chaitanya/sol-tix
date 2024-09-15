@@ -8,8 +8,38 @@ datasource db {
 }
 
 model User {
-  id        String  @id @default(uuid())
-  email     String  @unique
-  name      String?
-  password  String
+  id              String  @id @default(uuid())
+  email           String  @unique
+  name            String?
+  password        String
+  eventsHosted    Event[] @relation("hosted")
+  eventsAttended  UserEvent[] @relation("attended")
+}
+
+model Event {
+  id                String  @id @default(uuid())
+  name              String  
+  description       String
+  image             String
+  isPaid            Boolean
+  startDate         DateTime
+  endDate           DateTime
+  UTCOFFset         String
+  isVirtual         Boolean
+  ticketPrice       Int?
+  requireApproval   Boolean
+  capacity          Int
+  publicStatus      Boolean
+  location          String?
+  zoomAddress       String?
+  participants      UserEvent[]  @relation("attended")
+  host              User    @relation("hosted", fields: [id], references: [id])
+} 
+
+model UserEvent {
+  id      String  @id @default(uuid())
+  user    User    @relation("attended", fields: [userId], references: [id])
+  userId  String
+  event   Event   @relation("attended", fields: [eventId], references: [id])
+  eventId String
 }
