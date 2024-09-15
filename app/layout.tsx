@@ -34,7 +34,7 @@ export default function RootLayout({
       >
         <Appbar />
         <div className="flex flex-col justify-center items-center">
-          <StarsBackground className="relative z-0 h-screen" starDensity={0.00035}/>
+        <StarsBackground starDensity={0.00035} className="relative h-screen"/>
             {children}
             <div className="md:w-4/5 w-full">
               <Footer />
