@@ -10,6 +10,10 @@ const AuthOptions = {
         CredentialsProvider({
             name: "Credentials",
             credentials: {
+                name: {
+                    label: "name",
+                    type: "text"
+                },
                 email: {
                     label: "username",
                     type: "text",
@@ -17,10 +21,6 @@ const AuthOptions = {
                 password: {
                     label: "password",
                     type: "password",
-                },
-                name: {
-                    label: "name",
-                    type: "text"
                 }
             },
             async authorize(credentials, req) {
@@ -43,7 +43,8 @@ const AuthOptions = {
                     const newUser = await prisma.user.create({
                         data: {
                             email: credentials.email,
-                            password: hashedPassword
+                            password: hashedPassword,
+                            name: credentials.name
                         }
                     })
                     return newUser
@@ -54,10 +55,6 @@ const AuthOptions = {
     secret: process.env.NEXTAUTH_SECRET,
     jwt: {
         secret: 'secret'
-    },
-    pages: {
-        signIn: '/auth/signin',
-        newUser: '/auth/signup'
     }
 }
 
