@@ -3,9 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Footer from '@/components/Footer';
 import Appbar from "@/components/Appbar";
-import { ShootingStars } from "@/components/ui/shooting-stars";
-import { StarsBackground } from "@/components/ui/stars-background";
-
+import { Spotlight } from "@/components/ui/spotlight";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -30,11 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-b from-[#1e0245] to-[#151da5] flex flex-col`}
-      >
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-bl from-zinc-950 via-blue-950 to-zinc-950 flex flex-col scrollbar-thin scrollbar-thumb-fuchsia-500 scrollbar-track-#000000 h-full`}>
         <Appbar />
         <div className="flex flex-col justify-center items-center">
-        <StarsBackground starDensity={0.00035} className="relative h-screen"/>
             {children}
             <div className="md:w-4/5 w-full">
               <Footer />
