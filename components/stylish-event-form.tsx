@@ -12,6 +12,7 @@ import { Switch } from "@/components/ui/switch"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Separator } from "@/components/ui/separator"
 import { CalendarIcon, ImageIcon, DollarSignIcon, MapPinIcon, VideoIcon, UsersIcon, GlobeIcon } from "lucide-react"
+import axios from "axios"
 
 export function MultiStepForm() {
   const { register, handleSubmit, control, watch, setValue } = useForm({
@@ -47,8 +48,7 @@ export function MultiStepForm() {
   })
 
   const onSubmit = (data: any) => {
-    console.log(data)
-    // Here you would typically send the data to your backend
+    axios.post("/api/events", data)
   }
 
   const renderStep = (step: number) => {
