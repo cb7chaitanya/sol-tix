@@ -17,7 +17,7 @@ export async function GET() {
     }
 }
 
-export async function POST(req: NextRequest,) {
+export async function POST(req: NextRequest) {
     const { name, description, image, capacity, startDate, endDate, isPaid, UTCOFFset, isVirtual, ticketPrice, location, requireApproval, publicStatus, zoomAddress } = await req.json()
     try {
         const event = await prisma.event.create({
