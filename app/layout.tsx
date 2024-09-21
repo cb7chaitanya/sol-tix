@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-bl from-zinc-950 via-blue-950 to-zinc-950 flex flex-col scrollbar-thin scrollbar-thumb-fuchsia-500 scrollbar-track-#000000 h-full`}>
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-bl from-blue-900 via-blue-950 to-blue-950 flex flex-col scrollbar-thin scrollbar-thumb-fuchsia-500 scrollbar-track-#000000 h-full`}>
         <Appbar />
         <div className="flex flex-col justify-center items-center">
             {children}
