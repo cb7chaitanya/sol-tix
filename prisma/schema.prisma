@@ -8,12 +8,15 @@ datasource db {
 }
 
 model User {
-  id              String  @id @default(uuid())
-  email           String  @unique
+  id              String      @id @default(uuid())
+  email           String      @unique
   name            String?
   password        String
-  eventsHosted    Event[] @relation("hosted")
+  eventsHosted    Event[]     @relation("hosted")
   eventsAttended  UserEvent[] @relation("attended")
+  dateJoined      DateTime 
+  linkedinUrl     String?     @unique
+  twitterUrl      String?     @unique
 }
 
 model Event {
