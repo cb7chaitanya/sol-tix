@@ -1,13 +1,11 @@
-import { getServerSession } from 'next-auth'
+import UserDetail from '@/components/userDetail'
 import React from 'react'
 
 const page = async() => {
-  const session = await getServerSession()
+  
   return (
-    <div className='min-h-screen w-full lg:w-1/2'>
-        <div className=''>
-          <h1 className='text-white text-2xl lg:text-3xl font-semibold tracking-tight'>{session?.user?.name}</h1>
-        </div>
+    <div className='min-h-screen w-3/4 lg:w-1/2'>
+      <UserDetail />
     </div>
   )
 }
