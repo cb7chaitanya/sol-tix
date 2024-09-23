@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Footer from '@/components/Footer';
 import Appbar from "@/components/Appbar";
-import { Spotlight } from "@/components/ui/spotlight";
+import { Providers } from "./providers";
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -27,6 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Providers>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gradient-to-bl from-blue-900 via-blue-950 to-blue-950 flex flex-col scrollbar-thin scrollbar-thumb-fuchsia-500 scrollbar-track-#000000 h-full`}>
         <Appbar />
@@ -37,6 +38,7 @@ export default function RootLayout({
             </div>
           </div>
       </body>
+      </Providers>
     </html>
   );
 }
