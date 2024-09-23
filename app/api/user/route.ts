@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
     try {  
-        const { email } = await req.json()
+        const { email  } = await req.json()
         const user = await prisma.user.findUnique({
             where: {
                 email: email
@@ -17,7 +17,33 @@ export async function POST(req: NextRequest) {
     } catch (error) {
         console.log(error)
         return NextResponse.json({
-            message: "Failed to fetch user by Id",
+            message: "Failed to fetch user",
+            success: false
+        })
+    }
+}
+
+export async function PUT(req: NextRequest) {
+    try {
+        const { linkedinUrl, twitterUrl, email } = await req.json()
+        const user = await prisma.user.update({
+            where: {
+                email: email
+            },
+            data: {
+                linkedinUrl: linkedinUrl,
+                twitterUrl: twitterUrl
+            }
+        })
+        return NextResponse.json({
+            message: "User updated successfully",
+            success: true,
+            user
+        })
+    } catch (error) {
+        console.log(error)
+        return NextResponse.json({
+            message: "Failed to update user",
             success: false
         })
     }
