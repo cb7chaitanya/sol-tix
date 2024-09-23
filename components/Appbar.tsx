@@ -19,7 +19,7 @@ const Appbar = async() => {
     const user = await axios.post('http://localhost:3000/api/user', {
       email: session?.user?.email
     })
-    return user.data.user.id
+    return user?.data?.user?.id
   }
   const userId = await getUserId()
   return (
