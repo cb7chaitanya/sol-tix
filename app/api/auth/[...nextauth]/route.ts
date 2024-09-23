@@ -15,7 +15,7 @@ const AuthOptions = {
                     type: "text"
                 },
                 email: {
-                    label: "username",
+                    label: "email",
                     type: "text",
                 },
                 password: {
@@ -44,7 +44,8 @@ const AuthOptions = {
                         data: {
                             email: credentials.email,
                             password: hashedPassword,
-                            name: credentials.name
+                            name: credentials.name,
+                            dateJoined: new Date()
                         }
                     })
                     return newUser
