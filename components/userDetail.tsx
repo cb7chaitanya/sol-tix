@@ -12,7 +12,6 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Input } from "./ui/input";
 import { FaLinkedin } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import Link from "next/link";
@@ -20,11 +19,10 @@ import { FiEdit } from "react-icons/fi";
 import SocialForm from "./socialLinkForm";
 
 const UserDetail = async () => {
-  const session = await getServerSession();
+  const session = await getServerSession()
   const res = await axios.post("http://localhost:3000/api/user", {
     email: session?.user?.email,
   });
-  console.log(res);
   const date = dateTransform(res.data.user.dateJoined);
   const linkedinUrl = res.data.user.linkedinUrl;
   const twitterUrl = res.data.user.twitterUrl;
@@ -51,36 +49,21 @@ const UserDetail = async () => {
       <div className="flex gap-3">
       <div className="text-zinc-400 text-md lg:text-lg font-semibold tracking-tight hover:text-zinc-500 duration-300">
         {linkedinUrl ? (
-          <Link href={linkedinUrl}>
+          // <Link href={linkedinUrl}>
             <FaLinkedin />
-          </Link>
+          // </Link>
         ) : <FaLinkedin />}
       </div>
       <div className="text-zinc-400 text-md lg:text-lg font-semibold tracking-tight hover:text-zinc-500 duration-300">
         {twitterUrl ? (
-          <Link href={twitterUrl}>
+          // <Link href={twitterUrl}>
             <FaSquareXTwitter />
-          </Link>
+          // </Link>
         ) : <FaSquareXTwitter />} 
       </div>
       </div>
-      <AlertDialog>
-        <AlertDialogTrigger className="text-zinc-400"><FiEdit /></AlertDialogTrigger>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Social Links</AlertDialogTitle>
-            <AlertDialogDescription>
-              <SocialForm />
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction>Continue</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
     </div>
-  );
+  )
 };
 
 export default UserDetail;
