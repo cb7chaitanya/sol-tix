@@ -1,7 +1,5 @@
 import UserDetail from '@/components/userDetail'
 import UserEvents from '@/components/userEvents'
-import { useSession } from 'next-auth/react'
-import { useParams } from 'next/navigation'
 import React from 'react'
 
 const page = () => {
