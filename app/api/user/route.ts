@@ -15,7 +15,6 @@ export async function POST(req: NextRequest) {
             user
         })
     } catch (error) {
-        console.log(error)
         return NextResponse.json({
             message: "Failed to fetch user",
             success: false
@@ -41,7 +40,6 @@ export async function PUT(req: NextRequest) {
             user
         })
     } catch (error) {
-        console.log(error)
         return NextResponse.json({
             message: "Failed to update user",
             success: false
