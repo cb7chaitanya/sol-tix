@@ -1,5 +1,5 @@
-import UserDetail from '@/components/userDetail'
-import UserEvents from '@/components/userEvents'
+import UserDetail from '@/components/profile/userDetail'
+import UserEvents from '@/components/profile/userEvents'
 import React from 'react'
 
 const page = () => {

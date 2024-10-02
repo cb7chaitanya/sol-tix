@@ -23,9 +23,9 @@ const UserDetail = async () => {
   const res = await axios.post("http://localhost:3000/api/user", {
     email: session?.user?.email,
   });
-  const date = dateTransform(res.data.user.dateJoined);
-  const linkedinUrl = res.data.user.linkedinUrl;
-  const twitterUrl = res.data.user.twitterUrl;
+  const date = dateTransform(res.data.user?.dateJoined);
+  const linkedinUrl = res.data.user?.linkedinUrl;
+  const twitterUrl = res.data.user?.twitterUrl;
   return (
     <div className="flex flex-col gap-1 border-b border-zinc-500 p-3">
       <h1 className="text-white text-2xl lg:text-3xl font-semibold tracking-tight">
@@ -35,13 +35,13 @@ const UserDetail = async () => {
       <div className="flex gap-3 text-zinc-400 text-sm lg:text-md font-semibold tracking-tight">
         <p>
           <span className="text-white">{`${
-            res.data.user.eventsAttended?.length() || 0
+            res.data.user?.eventsAttended?.length() || 0
           }`}</span>{" "}
           Attended
         </p>
         <p>
           <span className="text-white">{`${
-            res.data.user.eventsHosted?.length() || 0
+            res.data.user?.eventsHosted?.length() || 0
           }`}</span>{" "}
           Hosted
         </p>
