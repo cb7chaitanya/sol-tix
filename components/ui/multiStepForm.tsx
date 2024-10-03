@@ -48,7 +48,7 @@ export function MultiStepForm() {
   })
 
   const onSubmit = (data: any) => {
-    axios.post("/api/events", data)
+    axios.post("http://localhost:3000/api/events", data)
   }
 
   const renderStep = (step: number) => {
